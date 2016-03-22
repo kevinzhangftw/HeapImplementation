@@ -103,6 +103,31 @@ void Heap::Print(){
 // PARAM: i is index to be bubbled down from
 // POST: swaps i with child if arr[i] < larger child
 void Heap::BubbleDown(int i){
-    //TODO
-    // Child nodes are 2 * i + 1 and 2 * i + 2
+    
+    int leftChild = 2*i +1;
+    int rightChild = 2*i +2;
+    //base case: if i is leaf node
+    if (leftChild > size || rightChild > size){
+        return;
+    }
+    
+    if (arr[i]<arr[leftChild] || arr[i]<arr[rightChild]) {
+        if (arr[leftChild]>arr[rightChild]) {
+            // Swap left child
+            int temp = arr[leftChild];
+            arr[leftChild] = arr[i];
+            arr[i] = temp;
+            // continue to check
+            BubbleDown(leftChild);
+        }else{
+            // Swap right child
+            int temp = arr[rightChild];
+            arr[rightChild] = arr[i];
+            arr[i] = temp;
+            // continue to check
+            BubbleDown(rightChild);
+        }
+    }
+    //The BubbleDown method compares the value of the element given by the index parameter (e.g. i) with the largest value of its two children (which could be either the left or right child). If the value of the larger child is greater than the value of the element at index i, the two values are swapped and the process continues by calling BubbleDown on the child. The process ends when the value at element i is greater than the values of its children,
+    //or if i is a leaf. As with all array methods, care must be taken not to access elements that are not valid array elements.
 }

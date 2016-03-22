@@ -30,7 +30,7 @@ void HeapTest()
     hp.Insert(4);
     
     cout <<"heap: ";
-    ht.Print();
+    hp.Print();
     cout << endl;
     
     while (!hp.Empty()){
